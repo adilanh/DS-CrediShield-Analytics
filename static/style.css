@@ -1,0 +1,38 @@
+:root {
+	--bg: #07111f;
+	--bg-elevated: #0f172a;
+	--surface: #111c33;
+	--surface-2: #18243d;
+	--text: #e5eefb;
+	--muted: #9fb2cc;
+	--line: #23314f;
+	--primary: #4f46e5;
+	--primary-2: #0ea5e9;
+	--success: #10b981;
+	--warning: #f59e0b;
+	--danger: #ef4444;
+}
+
+html, body {
+	min-height: 100%;
+}
+
+body {
+	background:
+		radial-gradient(circle at top right, rgba(79, 70, 229, 0.18), transparent 34%),
+		radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.12), transparent 28%),
+		var(--bg);
+	color: var(--text);
+}
+
+.card {
+	border-radius: 1rem;
+	background: linear-gradient(180deg, var(--surface), var(--surface-2));
+	border: 1px solid var(--line);
+}
+
+.palette-primary { color: var(--primary); }
+.palette-primary-2 { color: var(--primary-2); }
+.palette-success { color: var(--success); }
+.palette-warning { color: var(--warning); }
+.palette-danger { color: var(--danger); }

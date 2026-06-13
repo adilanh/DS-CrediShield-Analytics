@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="-mx-4 -mt-1 sm:-mx-6 lg:-mx-8">
+    <div class="mb-4 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-2xl font-semibold text-slate-100">Dashboard</h1>
+      <p class="mt-1 text-sm text-slate-400">Dashboard ini memakai embed Google Data Studio / Looker Studio.</p>
+    </div>
+
+    <div class="px-4 sm:px-6 lg:px-8">
+      <div class="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 shadow-sm shadow-black/20">
+        <iframe
+          src="https://datastudio.google.com/embed/reporting/11a6d871-03ef-4f26-8272-7452a24baf5a/page/Ba80F"
+          title="Dashboard Report"
+          class="h-[calc(100vh-11rem)] w-full min-h-[760px] border-0 bg-slate-900"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+{% endblock %}

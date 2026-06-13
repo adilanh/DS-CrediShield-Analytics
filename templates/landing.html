@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="hero p-4 p-md-5 mb-4 rounded-4 text-white">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <span class="badge bg-light text-dark mb-3">Flask Dashboard + Prediction</span>
+        <h1 class="display-5 fw-bold">Prediksi kartu kredit dengan tampilan landing page yang sederhana dan siap deploy.</h1>
+        <p class="lead mt-3 mb-4">
+          Gunakan dashboard embed untuk monitoring, dan halaman prediksi untuk input data model.
+          Kerangka ini minimal, tetapi sudah siap dikembangkan.
+        </p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="/dashboard" class="btn btn-light btn-lg">Buka Dashboard</a>
+          <a href="/predict" class="btn btn-outline-light btn-lg">Coba Prediksi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Dashboard Embed</h5>
+          <p class="card-text">Menampilkan report Google Data Studio / Looker Studio secara langsung.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Halaman Prediksi</h5>
+          <p class="card-text">Form sederhana untuk input fitur dan melihat hasil prediksi placeholder.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="card-title">Siap Dikembangkan</h5>
+          <p class="card-text">Bisa ditambah login, upload model, API, atau visualisasi tambahan lain.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
