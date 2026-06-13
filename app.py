@@ -126,8 +126,10 @@ def dashboard():
 @app.route('/prediksi', methods=['GET', 'POST'])
 def predict_page():
     hasil = None
+    form_data = {}
     if request.method == 'POST':
-        fitur = build_feature_frame(request.form)
+        form_data = request.form
+        fitur = build_feature_frame(form_data)
 
         prediction = model.predict(fitur)[0]
         proba = model.predict_proba(fitur)[0][1] if hasattr(model, 'predict_proba') else 0.0
@@ -139,19 +141,19 @@ def predict_page():
 
         _log_prediction(
             {
-                'pendapatan': request.form.get('pendapatan'),
-                'pinjaman': request.form.get('pinjaman'),
-                'dti': request.form.get('dti'),
-                'interest_rate': request.form.get('interest_rate'),
-                'emp_length': request.form.get('emp_length'),
-                'loan_purpose': request.form.get('loan_purpose'),
-                'grade': request.form.get('grade'),
-                'tenor': request.form.get('tenor'),
+                'pendapatan': form_data.get('pendapatan'),
+                'pinjaman': form_data.get('pinjaman'),
+                'dti': form_data.get('dti'),
+                'interest_rate': form_data.get('interest_rate'),
+                'emp_length': form_data.get('emp_length'),
+                'loan_purpose': form_data.get('loan_purpose'),
+                'grade': form_data.get('grade'),
+                'tenor': form_data.get('tenor'),
             },
             hasil,
         )
 
-    return render_template('prediksi.html', hasil=hasil)
+    return render_template('prediksi.html', hasil=hasil, form_data=form_data)
 
 
 if __name__ == '__main__':

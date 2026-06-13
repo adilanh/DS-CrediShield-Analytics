@@ -11,59 +11,59 @@
         <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div>
             <label for="pendapatan" class="mb-2 block text-sm font-medium text-slate-300">Pendapatan per Tahun</label>
-            <input id="pendapatan" name="pendapatan" type="number" step="0.01" placeholder="45000" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
+            <input id="pendapatan" name="pendapatan" type="number" step="0.01" placeholder="45000" value="{{ form_data.get('pendapatan', '') }}" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
           </div>
 
           <div>
             <label for="pinjaman" class="mb-2 block text-sm font-medium text-slate-300">Jumlah Pinjaman</label>
-            <input id="pinjaman" name="pinjaman" type="number" step="0.01" placeholder="15000" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
+            <input id="pinjaman" name="pinjaman" type="number" step="0.01" placeholder="15000" value="{{ form_data.get('pinjaman', '') }}" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
           </div>
 
           <div>
             <label for="dti" class="mb-2 block text-sm font-medium text-slate-300">Rasio Utang (%)</label>
-            <input id="dti" name="dti" type="number" step="0.1" placeholder="30" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
+            <input id="dti" name="dti" type="number" step="0.1" placeholder="30" value="{{ form_data.get('dti', '') }}" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
           </div>
 
           <div>
             <label for="interest_rate" class="mb-2 block text-sm font-medium text-slate-300">Bunga Pinjaman (%)</label>
-            <input id="interest_rate" name="interest_rate" type="number" step="0.01" placeholder="7.5" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
+            <input id="interest_rate" name="interest_rate" type="number" step="0.01" placeholder="7.5" value="{{ form_data.get('interest_rate', '') }}" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
           </div>
 
           <div>
             <label for="emp_length" class="mb-2 block text-sm font-medium text-slate-300">Masa Kerja (Tahun)</label>
-            <input id="emp_length" name="emp_length" type="number" step="1" placeholder="5" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
+            <input id="emp_length" name="emp_length" type="number" step="1" placeholder="5" value="{{ form_data.get('emp_length', '') }}" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
           </div>
 
           <div>
             <label for="loan_purpose" class="mb-2 block text-sm font-medium text-slate-300">Tujuan Dana</label>
             <select id="loan_purpose" name="loan_purpose" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
-              <option value="debt_consolidation">Debt Consolidation</option>
-              <option value="credit_card">Credit Card</option>
-              <option value="home_improvement">Home Improvement</option>
-              <option value="major_purchase">Major Purchase</option>
-              <option value="small_business">Small Business</option>
-              <option value="other">Other</option>
+              <option value="debt_consolidation" {% if form_data.get('loan_purpose') == 'debt_consolidation' %}selected{% endif %}>Debt Consolidation</option>
+              <option value="credit_card" {% if form_data.get('loan_purpose') == 'credit_card' %}selected{% endif %}>Credit Card</option>
+              <option value="home_improvement" {% if form_data.get('loan_purpose') == 'home_improvement' %}selected{% endif %}>Home Improvement</option>
+              <option value="major_purchase" {% if form_data.get('loan_purpose') == 'major_purchase' %}selected{% endif %}>Major Purchase</option>
+              <option value="small_business" {% if form_data.get('loan_purpose') == 'small_business' %}selected{% endif %}>Small Business</option>
+              <option value="other" {% if form_data.get('loan_purpose') == 'other' %}selected{% endif %}>Other</option>
             </select>
           </div>
 
           <div>
             <label for="grade" class="mb-2 block text-sm font-medium text-slate-300">Grade Nasabah</label>
             <select id="grade" name="grade" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E">E</option>
-              <option value="F">F</option>
-              <option value="G">G</option>
+              <option value="A" {% if form_data.get('grade') == 'A' %}selected{% endif %}>A</option>
+              <option value="B" {% if form_data.get('grade') == 'B' %}selected{% endif %}>B</option>
+              <option value="C" {% if form_data.get('grade') == 'C' %}selected{% endif %}>C</option>
+              <option value="D" {% if form_data.get('grade') == 'D' %}selected{% endif %}>D</option>
+              <option value="E" {% if form_data.get('grade') == 'E' %}selected{% endif %}>E</option>
+              <option value="F" {% if form_data.get('grade') == 'F' %}selected{% endif %}>F</option>
+              <option value="G" {% if form_data.get('grade') == 'G' %}selected{% endif %}>G</option>
             </select>
           </div>
 
           <div>
             <label for="tenor" class="mb-2 block text-sm font-medium text-slate-300">Tenor (Bulan)</label>
             <select id="tenor" name="tenor" class="w-full rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500">
-              <option value="36">36</option>
-              <option value="60">60</option>
+              <option value="36" {% if form_data.get('tenor') == '36' %}selected{% endif %}>36</option>
+              <option value="60" {% if form_data.get('tenor') == '60' %}selected{% endif %}>60</option>
             </select>
           </div>
         </div>
